@@ -1,0 +1,10 @@
+HE150172|Nguyen Hong Phuong|3|Java
+HE153054|Hoang Van Nam|3|Java
+HE150174|Tran Nguyen Phuong Linh|1|C/C++
+HE160005|Pham Quang Hung|4|.Net
+HE150172|Nguyen Hong Phuong|5|Java
+HE160199|Pham Nguyen Thanh Quang|2|C/C++
+HE150172|Nguyen Hong Phuong|3|C/C++
+HE150172|Nguyen Hong Phuong|4|.Net
+HE153054|Hoang Van Nam|4|.Net
+HE150333|Nguyen Tung Lam|2|Java
