@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ProductDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;PROJECT_prj301&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dal</a> &gt; <span class="el_source">ProductDAO.java</span></div><h1>ProductDAO.java</h1><pre class="source lang-java linenums">package dal;
+
+import com.sun.javafx.scene.control.skin.VirtualFlow;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import model.Product;
+
+/**
+ *
+ * @author Admin
+ */
+<span class="nc" id="L15">public class ProductDAO extends DBContext {</span>
+
+    public List&lt;Product&gt; getFeatured() {
+<span class="nc" id="L18">        List&lt;Product&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L19">        String sql = &quot;select top 8 *from SanPham order by DaBan desc&quot;;</span>
+        try {
+<span class="nc" id="L21">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc" id="L22">            ResultSet rs = st.executeQuery();</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">            while (rs.next()) {</span>
+<span class="nc" id="L24">                Product s = new Product();</span>
+<span class="nc" id="L25">                s.setID(rs.getInt(&quot;MaSP&quot;));</span>
+<span class="nc" id="L26">                s.setCateID(rs.getString(&quot;CategoryID&quot;));</span>
+<span class="nc" id="L27">                s.setQuantity(rs.getInt(&quot;SoLuong&quot;));</span>
+<span class="nc" id="L28">                s.setPrice(rs.getString(&quot;Gia&quot;));</span>
+<span class="nc" id="L29">                s.setScript(rs.getString(&quot;Script&quot;));</span>
+<span class="nc" id="L30">                s.setSubcate(rs.getString(&quot;Subcate&quot;));</span>
+<span class="nc" id="L31">                s.setName(rs.getString(&quot;TenSP&quot;));</span>
+<span class="nc" id="L32">                s.setBrandID(rs.getString(&quot;MaThuongHieu&quot;));</span>
+<span class="nc" id="L33">                s.setImg(rs.getString(&quot;linkAnh&quot;));</span>
+<span class="nc" id="L34">                s.setSold(rs.getInt(&quot;DaBan&quot;));</span>
+<span class="nc" id="L35">                list.add(s);</span>
+<span class="nc" id="L36">            }</span>
+<span class="nc" id="L37">        } catch (SQLException e) {</span>
+<span class="nc" id="L38">            System.out.println(e);</span>
+<span class="nc" id="L39">        }</span>
+<span class="nc" id="L40">        return list;</span>
+    }
+
+    public List&lt;Product&gt; getAll() {
+<span class="nc" id="L44">        List&lt;Product&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L45">        String sql = &quot;select *from SanPham&quot;;</span>
+        try {
+<span class="nc" id="L47">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc" id="L48">            ResultSet rs = st.executeQuery();</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            while (rs.next()) {</span>
+<span class="nc" id="L50">                Product s = new Product();</span>
+<span class="nc" id="L51">                s.setID(rs.getInt(&quot;MaSP&quot;));</span>
+<span class="nc" id="L52">                s.setCateID(rs.getString(&quot;CategoryID&quot;));</span>
+<span class="nc" id="L53">                s.setQuantity(rs.getInt(&quot;SoLuong&quot;));</span>
+<span class="nc" id="L54">                s.setPrice(rs.getString(&quot;Gia&quot;));</span>
+<span class="nc" id="L55">                s.setScript(rs.getString(&quot;Script&quot;));</span>
+<span class="nc" id="L56">                s.setSubcate(rs.getString(&quot;Subcate&quot;));</span>
+<span class="nc" id="L57">                s.setName(rs.getString(&quot;TenSP&quot;));</span>
+<span class="nc" id="L58">                s.setBrandID(rs.getString(&quot;MaThuongHieu&quot;));</span>
+<span class="nc" id="L59">                s.setImg(rs.getString(&quot;linkAnh&quot;));</span>
+<span class="nc" id="L60">                s.setSold(rs.getInt(&quot;DaBan&quot;));</span>
+<span class="nc" id="L61">                list.add(s);</span>
+<span class="nc" id="L62">            }</span>
+<span class="nc" id="L63">        } catch (SQLException e) {</span>
+<span class="nc" id="L64">            System.out.println(e);</span>
+<span class="nc" id="L65">        }</span>
+<span class="nc" id="L66">        return list;</span>
+    }
+
+    public List&lt;Product&gt; getSaleOff() {
+<span class="nc" id="L70">        List&lt;Product&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L71">        String sql = &quot;select top 8 *from SaleOff inner join SanPham on SaleOff.MaSP = SanPham.MaSP&quot;;</span>
+        try {
+<span class="nc" id="L73">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc" id="L74">            ResultSet rs = st.executeQuery();</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">            while (rs.next()) {</span>
+<span class="nc" id="L76">                Product s = new Product();</span>
+<span class="nc" id="L77">                s.setID(rs.getInt(&quot;MaSP&quot;));</span>
+<span class="nc" id="L78">                s.setCateID(rs.getString(&quot;CategoryID&quot;));</span>
+<span class="nc" id="L79">                s.setQuantity(rs.getInt(&quot;SoLuong&quot;));</span>
+<span class="nc" id="L80">                s.setPrice(rs.getString(&quot;Gia&quot;));</span>
+<span class="nc" id="L81">                s.setScript(rs.getString(&quot;Script&quot;));</span>
+<span class="nc" id="L82">                s.setSubcate(rs.getString(&quot;Subcate&quot;));</span>
+<span class="nc" id="L83">                s.setName(rs.getString(&quot;TenSP&quot;));</span>
+<span class="nc" id="L84">                s.setBrandID(rs.getString(&quot;MaThuongHieu&quot;));</span>
+<span class="nc" id="L85">                s.setImg(rs.getString(&quot;linkAnh&quot;));</span>
+<span class="nc" id="L86">                s.setSold(rs.getInt(&quot;DaBan&quot;));</span>
+<span class="nc" id="L87">                list.add(s);</span>
+<span class="nc" id="L88">            }</span>
+<span class="nc" id="L89">        } catch (SQLException e) {</span>
+<span class="nc" id="L90">            System.out.println(e);</span>
+<span class="nc" id="L91">        }</span>
+<span class="nc" id="L92">        return list;</span>
+    }
+
+    public List&lt;String&gt; getSubcate(String cateID) {
+<span class="nc" id="L96">        List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L97">        String sql = &quot;select *from SubCategory where CategoryID= ?&quot;;</span>
+        try {
+<span class="nc" id="L99">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc" id="L100">            st.setString(1, cateID);</span>
+<span class="nc" id="L101">            ResultSet rs = st.executeQuery();</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">            while (rs.next()) {</span>
+<span class="nc" id="L103">                String s = rs.getString(&quot;Subcate&quot;);</span>
+<span class="nc" id="L104">                list.add(s);</span>
+<span class="nc" id="L105">            }</span>
+<span class="nc" id="L106">        } catch (SQLException e) {</span>
+<span class="nc" id="L107">            System.out.println(e);</span>
+<span class="nc" id="L108">        }</span>
+<span class="nc" id="L109">        return list;</span>
+    }
+
+    public List&lt;Product&gt; getProductBySubcate(String c) {
+<span class="nc" id="L113">        List&lt;Product&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L114">        String sql = &quot;select*from SanPham where Subcate=? or CategoryID=?&quot;;</span>
+        try {
+<span class="nc" id="L116">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">            if (c.length() &gt; 4) {</span>
+<span class="nc" id="L118">                st.setString(1, c);</span>
+<span class="nc" id="L119">                st.setString(2, &quot;null&quot;);</span>
+            } else {
+<span class="nc" id="L121">                st.setString(1, &quot;null&quot;);</span>
+<span class="nc" id="L122">                st.setString(2, c);</span>
+            }
+<span class="nc" id="L124">            ResultSet rs = st.executeQuery();</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">            while (rs.next()) {</span>
+<span class="nc" id="L126">                Product s = new Product();</span>
+<span class="nc" id="L127">                s.setID(rs.getInt(&quot;MaSP&quot;));</span>
+<span class="nc" id="L128">                s.setCateID(rs.getString(&quot;CategoryID&quot;));</span>
+<span class="nc" id="L129">                s.setQuantity(rs.getInt(&quot;SoLuong&quot;));</span>
+<span class="nc" id="L130">                s.setPrice(rs.getString(&quot;Gia&quot;));</span>
+<span class="nc" id="L131">                s.setScript(rs.getString(&quot;Script&quot;));</span>
+<span class="nc" id="L132">                s.setSubcate(rs.getString(&quot;Subcate&quot;));</span>
+<span class="nc" id="L133">                s.setName(rs.getString(&quot;TenSP&quot;));</span>
+<span class="nc" id="L134">                s.setBrandID(rs.getString(&quot;MaThuongHieu&quot;));</span>
+<span class="nc" id="L135">                s.setImg(rs.getString(&quot;linkAnh&quot;));</span>
+<span class="nc" id="L136">                s.setSold(rs.getInt(&quot;DaBan&quot;));</span>
+<span class="nc" id="L137">                list.add(s);</span>
+<span class="nc" id="L138">            }</span>
+<span class="nc" id="L139">        } catch (SQLException e) {</span>
+<span class="nc" id="L140">            System.out.println(e);</span>
+<span class="nc" id="L141">        }</span>
+<span class="nc" id="L142">        return list;</span>
+    }
+
+    public Product getProductByID(int id) {
+<span class="nc" id="L146">        String sql = &quot;select * from SanPham where MaSP=?&quot;;</span>
+        try {
+<span class="nc" id="L148">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc" id="L149">            st.setInt(1, id);</span>
+<span class="nc" id="L150">            ResultSet rs = st.executeQuery();</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">            if (rs.next()) {</span>
+<span class="nc" id="L152">                return new Product(id,</span>
+<span class="nc" id="L153">                        rs.getString(&quot;CategoryID&quot;),</span>
+<span class="nc" id="L154">                        rs.getInt(&quot;SoLuong&quot;),</span>
+<span class="nc" id="L155">                        rs.getString(&quot;Gia&quot;),</span>
+<span class="nc" id="L156">                        rs.getString(&quot;linkAnh&quot;),</span>
+<span class="nc" id="L157">                        rs.getString(&quot;Script&quot;),</span>
+<span class="nc" id="L158">                        rs.getString(&quot;Subcate&quot;),</span>
+<span class="nc" id="L159">                        rs.getString(&quot;TenSP&quot;),</span>
+<span class="nc" id="L160">                        rs.getString(&quot;MaThuongHieu&quot;),</span>
+<span class="nc" id="L161">                        rs.getInt(&quot;DaBan&quot;));</span>
+            }
+<span class="nc" id="L163">        } catch (SQLException e) {</span>
+<span class="nc" id="L164">            System.out.println(e);</span>
+<span class="nc" id="L165">        }</span>
+<span class="nc" id="L166">        return null;</span>
+    }
+
+    public List&lt;Product&gt; search(String danhmuc, String name) {
+<span class="nc" id="L170">        String sql = &quot;select * from SanPham where TenSP like '%&quot; + name + &quot;%'&quot;;</span>
+        try {
+<span class="nc" id="L172">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">            if (danhmuc.length() &gt; 1) {</span>
+<span class="nc" id="L174">                sql = sql.concat(&quot; and CategoryID = '&quot; + danhmuc + &quot;'&quot;);</span>
+            }
+<span class="nc" id="L176">            System.out.println(sql);</span>
+<span class="nc" id="L177">            List&lt;Product&gt; a = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L178">            ResultSet rs = st.executeQuery();</span>
+<span class="nc" id="L179">            int count = 0;</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">            while (rs.next()) {</span>
+<span class="nc" id="L181">                count++;</span>
+<span class="nc" id="L182">                a.add(new Product(</span>
+<span class="nc" id="L183">                        rs.getInt(&quot;MaSP&quot;),</span>
+<span class="nc" id="L184">                        rs.getString(&quot;CategoryID&quot;),</span>
+<span class="nc" id="L185">                        rs.getInt(&quot;SoLuong&quot;),</span>
+<span class="nc" id="L186">                        rs.getString(&quot;Gia&quot;),</span>
+<span class="nc" id="L187">                        rs.getString(&quot;linkAnh&quot;),</span>
+<span class="nc" id="L188">                        rs.getString(&quot;Script&quot;),</span>
+<span class="nc" id="L189">                        rs.getString(&quot;Subcate&quot;),</span>
+<span class="nc" id="L190">                        rs.getString(&quot;TenSP&quot;),</span>
+<span class="nc" id="L191">                        rs.getString(&quot;MaThuongHieu&quot;),</span>
+<span class="nc" id="L192">                        rs.getInt(&quot;DaBan&quot;)));</span>
+            }
+<span class="nc" id="L194">            System.out.println(count);</span>
+<span class="nc" id="L195">            return a;</span>
+<span class="nc" id="L196">        } catch (SQLException e) {</span>
+<span class="nc" id="L197">            System.out.println(e);</span>
+        }
+<span class="nc" id="L199">        return null;</span>
+    }
+
+    public int add(Product a) {
+<span class="nc" id="L203">        String sql = &quot;insert into SanPham values (?,?,?,?,?,?,?,?,?,?)&quot;;</span>
+        try {
+<span class="nc" id="L205">            int check = 0;</span>
+<span class="nc" id="L206">            ProductDAO db = new ProductDAO();</span>
+<span class="nc" id="L207">            List&lt;String&gt; li = db.getSubcate(a.getCateID());</span>
+
+<span class="nc bnc" id="L209" title="All 2 branches missed.">            for (String i : li) {</span>
+<span class="nc bnc" id="L210" title="All 2 branches missed.">                if (i.trim().equals(a.getSubcate())) {</span>
+<span class="nc" id="L211">                    check = 1;</span>
+                }
+<span class="nc" id="L213">            }</span>
+<span class="nc" id="L214">            System.out.println(li.size());</span>
+<span class="nc bnc" id="L215" title="All 2 branches missed.">            if (check == 0) {</span>
+<span class="nc" id="L216">                String s = &quot;insert into Subcategory values ('&quot;+ a.getCateID()+&quot;','&quot;+a.getSubcate()+&quot;')&quot;;</span>
+<span class="nc" id="L217">                PreparedStatement st0 = connection.prepareStatement(s);</span>
+<span class="nc" id="L218">                st0.executeQuery();</span>
+<span class="nc" id="L219">                System.out.println(&quot;NOOOOOOOO&quot;);</span>
+            }
+<span class="nc" id="L221">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc" id="L222">            st.setInt(1, a.getID());</span>
+<span class="nc" id="L223">            st.setString(2, a.getCateID());</span>
+<span class="nc" id="L224">            st.setInt(3, a.getQuantity());</span>
+<span class="nc" id="L225">            st.setString(4, a.getPrice());</span>
+<span class="nc" id="L226">            st.setString(5, a.getScript());</span>
+<span class="nc" id="L227">            st.setString(6, a.getSubcate());</span>
+<span class="nc" id="L228">            st.setString(7, a.getName());</span>
+<span class="nc" id="L229">            st.setString(8, a.getBrandID());</span>
+<span class="nc" id="L230">            st.setString(9, a.getImg());</span>
+<span class="nc" id="L231">            st.setInt(10, a.getSold());</span>
+<span class="nc" id="L232">            return st.executeUpdate();</span>
+<span class="nc" id="L233">        } catch (SQLException e) {</span>
+<span class="nc" id="L234">            System.out.println(e);</span>
+        }
+<span class="nc" id="L236">        return -1;</span>
+    } 
+
+    public List&lt;Product&gt; getByPage(List&lt;Product&gt; list, int start, int end) {
+<span class="nc" id="L240">        List&lt;Product&gt; list2 = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L241" title="All 2 branches missed.">        for (int i = start; i &lt; end; i++) {</span>
+<span class="nc" id="L242">            list2.add(list.get(i));</span>
+        }
+<span class="nc" id="L244">        return list2;</span>
+    }
+
+    public int delete(int id) {
+<span class="nc" id="L248">        String sql = &quot;delete from Cart where MaSP =?\n&quot;</span>
+                + &quot;delete from SanPham where MaSP =?&quot;;
+        try {
+<span class="nc" id="L251">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc" id="L252">            st.setInt(1, id);</span>
+<span class="nc" id="L253">            st.setInt(2, id);</span>
+<span class="nc" id="L254">            ResultSet rs = st.executeQuery();</span>
+<span class="nc" id="L255">            return st.executeUpdate();</span>
+<span class="nc" id="L256">        } catch (SQLException e) {</span>
+<span class="nc" id="L257">            System.out.println(e);</span>
+        }
+<span class="nc" id="L259">        return 0;</span>
+    }
+
+    public int update(Product s) {
+<span class="nc" id="L263">        String sql = &quot;update SanPham set&quot; + &quot; TenSP = '&quot; + s.getName() + &quot;'&quot;;</span>
+        try {
+<span class="nc bnc" id="L265" title="All 2 branches missed.">            if (s.getQuantity() != 0) {</span>
+<span class="nc" id="L266">                sql = sql.concat(&quot;,SoLuong = '&quot; + s.getQuantity() + &quot;'&quot;);</span>
+            }
+<span class="nc bnc" id="L268" title="All 2 branches missed.">            if (s.getImg() != null) {</span>
+<span class="nc" id="L269">                sql = sql.concat(&quot;,linkAnh = '&quot; + s.getImg() + &quot;'&quot;);</span>
+            }
+<span class="nc bnc" id="L271" title="All 2 branches missed.">            if (s.getPrice() != null) {</span>
+<span class="nc" id="L272">                sql = sql.concat(&quot;, Gia = '&quot; + s.getPrice() + &quot;'&quot;);</span>
+            }
+<span class="nc bnc" id="L274" title="All 2 branches missed.">            if (s.getScript() != null) {</span>
+<span class="nc" id="L275">                sql = sql.concat(&quot;, Script = '&quot; + s.getScript() + &quot;'&quot;);</span>
+            }
+<span class="nc" id="L277">            sql = sql.concat(&quot;where MaSP = '&quot; + s.getID() + &quot;'&quot;);</span>
+<span class="nc" id="L278">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="nc" id="L279">            return st.executeUpdate();</span>
+<span class="nc" id="L280">        } catch (SQLException e) {</span>
+<span class="nc" id="L281">            System.out.println(e);</span>
+        }
+<span class="nc" id="L283">        return 0;</span>
+    }
+
+    public static void main(String[] args) {
+<span class="nc" id="L287">        ProductDAO a = new ProductDAO();</span>
+<span class="nc" id="L288">        Product b = new Product(49, &quot;TPCN&quot;, 41, &quot;90000&quot;,&quot;ghjkl&quot;, &quot;yuio&quot;, &quot;thuốc bổ&quot;, &quot;ẠBDJS&quot;, &quot;SA&quot;, 0);</span>
+<span class="nc" id="L289">        a.add(b);</span>
+        
+<span class="nc" id="L291">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

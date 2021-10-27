@@ -1,0 +1,919 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Nhà thuốc Thái Lâm - Uy tín hàng đầu</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--Favicons-->
+        <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <!--Bootstrap and Other Vendors-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+        <!--Fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+        <!--Mechanic Styles-->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.min.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <header class="row" id="header">
+            <div class="row m0 top_menus">
+                <div class="container">
+                    <div class="row">
+                        <ul class="nav nav-pills fleft">
+                            <li><a href="index.html">home</a></li>
+                            <li><a href="about.html">about</a></li>
+                            <li><a href="contact.html">contact us</a></li>
+                        </ul>
+                        <ul class="nav nav-pills fright">
+                            <li><a href="cart.html">cart</a></li>
+                            <li><a href="#">track order</a></li>
+                            <li><a href="#">my account</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row m0 logo_line">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-5 logo">
+                            <a href="index.html" class="logo_a"><img src="images/logo.png" alt="Furniture House"></a>
+                        </div>
+                        <div class="col-sm-7 searchSec">
+                            <div class="fleft searchForm">
+                                <form action="#" method="get">
+                                    <div class="input-group">
+                                        <input type="hidden" name="search_param" value="all" id="search_param">
+                                        <input type="search" class="form-control" placeholder="Search Products">
+                                        <div class="input-group-btn searchFilters">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <span id="searchFilterValue">Danh mục</span> <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                <li><a href="#all">danh mục</a></li>
+                                                <li>
+                                                    <a href="#chairs">Thực phẩm chứ năng</a>
+                                                </li>
+                                                <li><a href="#tables">Thuốc không kê đơn</a></li>
+                                                <li><a href="#dressers">Chăm sóc sức khỏe</a></li>
+                                                <li><a href="#desk">Mỹ phẩm</a></li>
+                                                <li><a href="#beds">Sống khỏe</a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /btn-group -->
+                                        <span class="input-group-btn searchIco">
+                                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                    <!-- /input-group -->
+                                </form>
+                            </div>
+                            <div class="fleft wishlistCompare">
+                                <ul class="nav">
+                                    <li><a href="#"><i class="fa fa-heart"></i> Wishlist (3)</a></li>
+                                    <li><a href="#"><i class="fa fa-exchange"></i> Compare (2)</a></li>
+                                </ul>
+                            </div>
+                            <div class="fleft cartCount">
+                                <div class="cartCountInner row m0">
+                                    <span class="badge">2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-default m0 navbar-static-top">
+                <div class="container-fluid container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+                            <i class="fa fa-bars"></i> Navigation
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="nav navbar-nav">
+                            <li class="active dropdown">
+                                <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Trang chủ</a>
+
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">thực phẩm chức năng</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="single-post.html">Single Post</a></li>
+                                    <li><a href="shortcodes.html">Shortcodes</a></li>
+                                    <li><a href="404.html">404</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown megaMenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">thuốc không kê đơn</a>
+                                <ul class="dropdown-menu row m0" role="menu">
+                                    <li class="listMenu">
+                                        <div class="row listTitle">sofas &amp; sectionals</div>
+                                        <ul class="nav megaInnerMenu">
+                                            <li><a href="#chairs">chairs</a></li>
+                                            <li><a href="#tables">tables</a></li>
+                                            <li><a href="#dressers">dressers</a></li>
+                                            <li><a href="#desk">desk</a></li>
+                                            <li><a href="#beds">beds</a></li>
+                                            <li><a href="#benches">benches</a></li>
+                                            <li><a href="#moroccan">moroccan</a></li>
+                                            <li><a href="#poufs">poufs</a></li>
+                                            <li><a href="#screen">screen</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="listMenu">
+                                        <div class="row listTitle">shop by collections</div>
+                                        <ul class="nav megaInnerMenu">
+                                            <li><a href="#bond">bond</a></li>
+                                            <li><a href="#whitaker">whitaker</a></li>
+                                            <li><a href="#arden">arden</a></li>
+                                            <li><a href="#channing">channing</a></li>
+                                            <li><a href="#delphine">delphine</a></li>
+                                            <li><a href="#jacque">jacque</a></li>
+                                            <li><a href="#lampert">lampert</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="boxMenu">
+                                        <div class="row listTitle">
+                                            shop by categories <a href="product.html">shop all <i class="fa fa-caret-right"></i></a>
+                                        </div>
+                                        <ul class="nav megaInnerMenu row m0">
+                                            <li>
+                                                <a href="product2.html">
+                                                    <div class="row m0 imgHov">
+                                                        <img src="images/menu/1.png" alt="">
+                                                        <div class="row m0 hovCnt">
+                                                            <div class="row m0 hovCntInner">
+                                                                shop now <i class="fa fa-caret-right"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m0 menuTitle">Office furniture</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="product.html">
+                                                    <div class="row m0 imgHov">
+                                                        <img src="images/menu/2.png" alt="">
+                                                        <div class="row m0 hovCnt">
+                                                            <div class="row m0 hovCntInner">
+                                                                shop now <i class="fa fa-caret-right"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m0 menuTitle">sofas &amp; bed</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="product2.html">
+                                                    <div class="row m0 imgHov">
+                                                        <img src="images/menu/3.png" alt="">
+                                                        <div class="row m0 hovCnt">
+                                                            <div class="row m0 hovCntInner">
+                                                                shop now <i class="fa fa-caret-right"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m0 menuTitle">dinning tables</div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">chăm sóc sức khỏe</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="product.html">Products</a></li>
+                                    <li><a href="product2.html">Products 2</a></li>
+                                    <li><a href="single-product.html">Single Product</a></li>
+                                    <li><a href="catalog.html">Catalog</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">mỹ phẩm</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="product.html">Products</a></li>
+                                    <li><a href="product2.html">Products 2</a></li>
+                                    <li><a href="single-product.html">Single Product</a></li>
+                                    <li><a href="catalog.html">Catalog</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="contact.html">sống khỏe</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+            <div class="row topFeatures m0">
+                <div class="container">
+                    <ul class="nav nav-justified text-center">
+                        <li><img src="images\icons\delivery-car.png" alt=""> fast delivery</li>
+                        <li><img src="images/icons/tel24-7.png" alt="">24/7 customer support</li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!--Header-->
+
+        <section id="slider" class="row">
+            <div class="row sliderCont flexslider m0">
+                <ul class="slides nav">
+                    <li>
+                        <img src="images\slider\1.jpg" alt="">
+                        <!--Text Lines-->
+                    </li>
+                    <li>
+                        <img src="images\slider\2.png" alt="">
+
+                        <!--Text Lines-->
+                    </li>
+                    <li>
+                        <img src="images\slider\3.png" alt="">
+
+                        <!--Text Lines-->
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!--Slider-->
+
+        <section id="shopFeatures" class="row">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-sm-3 coreFeature">
+                        <div class="row m0 coreFeatureInner">
+                            <div class="row m0 icon circle"><img src="images/icons/car2.png" alt=""></div>
+                            <h5>miễn phí vận chuyển</h5>
+                            <p>Miễn phí vận chuyển cho các đơn hàng trên 300,000VNĐ và nhận hàng nhanh chóng.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 coreFeature">
+                        <div class="row m0 coreFeatureInner">
+                            <div class="row m0 icon circle"><img src="images/icons/car2.png" alt=""></div>
+                            <h5>tận tâm phục vụ</h5>
+                            <p>Dịch vụ chăm sóc khách hàng chuyên nghiệp luôn sẵn sàng giải đáp mọi thắc mắc của bạn.<br> Hotline miễn phí: 1800 2001</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 coreFeature">
+                        <div class="row m0 coreFeatureInner">
+                            <div class="row m0 icon circle"><img src="images/icons/cart2.png" alt=""></div>
+                            <h5>sản phẩm chất lượng</h5>
+                            <p>Chúng tôi cam kết mang đến những sản phẩm đến từ các thương hiệu uy tín, an toàn cho sức khỏe người tiêu dùng.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 coreFeature">
+                        <div class="row m0 coreFeatureInner">
+                            <div class="row m0 icon circle"><img src="images/icons/catalog.png" alt=""></div>
+                            <h5>mua hàng trực tuyến</h5>
+                            <p>Giá bán trên trang chỉ áp dụng khi mua sắm trên trang thương mại điện tử của nhà thuốc Thái Lâm.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Shop Core Feature-->
+
+        <section id="homeBanners" class="row">
+            <div class="container">
+                <div class="row text-center">
+                    <a href="product.html">
+                        <div class="col-sm-3 homeBanner">
+                            <div class="row">
+                                <img src="images/banner/homeBanner1.png" alt="" class="bgImage">
+                                <div class="row m0 bannerTextArea">
+                                    <div class="row m0 bannerTextAreaInner">
+                                        <h4>new year sales</h4>
+                                        <h5>now in stores</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 homeBanner">
+                            <div class="row">
+                                <img src="images/banner/homeBanner2.png" alt="" class="bgImage">
+                            </div>
+                        </div>
+                        <div class="col-sm-3 homeBanner">
+                            <div class="row">
+                                <img src="images/banner/homeBanner3.png" alt="" class="bgImage">
+                                <div class="row m0 bannerTextArea">
+                                    <div class="row m0 bannerTextAreaInner">
+                                        <h4>new arrivals</h4>
+                                        <h5>shop now</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!--Banner-->
+
+        <section id="featureProducts" class="row contentRowPad">
+            <div class="container">
+                <div class="row sectionTitle">
+                    <h3>sản phẩm nổi bật</h3>
+                    <h5>các sản phẩm được khách hàng quan tâm nhất</h5>
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-3 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/1.png" alt="">
+                                <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">xem nhanh</a></div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">name</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <button class="addToCart btn">thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/2.png" alt="">
+                                   <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">Baccarat</a></div>
+                                    <div class="row m0 proRating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="row m0 proPrice"><i class="fa fa-usd"></i>125.00</div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">Dining table</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <a class="addToCart btn" href="#">add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/3.png" alt="">
+                                <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">Baccarat</a></div>
+                                    <div class="row m0 proRating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="row m0 proPrice"><i class="fa fa-usd"></i>125.00</div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">wow sofa collections</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <button class="addToCart btn">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/4.png" alt="">
+                                <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">Baccarat</a></div>
+                                    <div class="row m0 proRating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="row m0 proPrice"><i class="fa fa-usd"></i>125.00</div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">bed collection</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <button class="addToCart btn">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Feature Products 4 Collumn-->
+
+        <section id="featureCategory" class="row contentRowPad">
+            <div class="row m0 sectionTitle">
+                <h3>Danh mục nổi bật</h3>
+            </div>
+            <div class="owl-carousel featureCats row m0">
+                <div class="item">
+                    <div class="row m0 imgHov">
+                        <img src="images/product/category/1.png" alt="">
+                        <div class="row m0 hovArea">
+                            <i class="fa fa-heart-o"></i><br>
+                            <h4>11 items</h4><a href="product.html">shop now</a>
+                        </div>
+                    </div>
+                    <a href="product.html">
+                        <h4>chairs &amp; sofas</h4>
+                    </a>
+                </div>
+                <div class="item">
+                    <div class="row m0 imgHov">
+                        <img src="images/product/category/2.png" alt="">
+                        <div class="row m0 hovArea">
+                            <i class="fa fa-heart-o"></i><br>
+                            <h4>21 items</h4><a href="product.html">shop now</a>
+                        </div>
+                    </div>
+                    <a href="product.html">
+                        <h4>outside furnitures</h4>
+                    </a>
+                </div>
+                <div class="item">
+                    <div class="row m0 imgHov">
+                        <img src="images/product/category/3.png" alt="">
+                        <div class="row m0 hovArea">
+                            <i class="fa fa-heart-o"></i><br>
+                            <h4>30 items</h4><a href="product.html">shop now</a>
+                        </div>
+                    </div>
+                    <a href="product.html">
+                        <h4>bed &amp; office furnitures</h4>
+                    </a>
+                </div>
+                <div class="item">
+                    <div class="row m0 imgHov">
+                        <img src="images/product/category/4.png" alt="">
+                        <div class="row m0 hovArea">
+                            <i class="fa fa-heart-o"></i><br>
+                            <h4>55 items</h4><a href="product.html">shop now</a>
+                        </div>
+                    </div>
+                    <a href="product.html">
+                        <h4>dining table</h4>
+                    </a>
+                </div>
+                <div class="item">
+                    <div class="row m0 imgHov">
+                        <img src="images/product/category/2.png" alt="">
+                        <div class="row m0 hovArea">
+                            <i class="fa fa-heart-o"></i><br>
+                            <h4>21 items</h4><a href="product.html">shop now</a>
+                        </div>
+                    </div>
+                    <a href="product.html">
+                        <h4>outside furnitures</h4>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!--Feature Categories-->
+
+        <section id="furnitureHouse" class="row contentRowPad">
+            <div class="container">
+                <div class="row sectionTitle">
+                    <h3>tăng sức đề kháng mùa dịch</h3>
+                    <h5>chung tay chống dịch, nhà nhà bình an</h5>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/5.png" alt="">
+                                <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">Baccarat</a></div>
+                                    <div class="row m0 proRating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="row m0 proPrice"><i class="fa fa-usd"></i>455.00</div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">colorful sofa</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <button class="addToCart btn">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/6.png" alt="">
+                                <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">Baccarat</a></div>
+                                    <div class="row m0 proRating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="row m0 proPrice"><i class="fa fa-usd"></i>830.00</div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">Dining table</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <a class="addToCart btn" href="#">add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/7.png" alt="">
+                                <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">Baccarat</a></div>
+                                    <div class="row m0 proRating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="row m0 proPrice"><i class="fa fa-usd"></i>525.00</div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">wow sofa collections</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <button class="addToCart btn">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/8.png" alt="">
+                                <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">Baccarat</a></div>
+                                    <div class="row m0 proRating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="row m0 proPrice"><i class="fa fa-usd"></i>1025.00</div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">bed collection</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <button class="addToCart btn">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/9.png" alt="">
+                                <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">Baccarat</a></div>
+                                    <div class="row m0 proRating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="row m0 proPrice"><i class="fa fa-usd"></i>725.00</div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">bed collection</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <button class="addToCart btn">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 product">
+                        <div class="productInner row m0">
+                            <div class="row m0 imgHov">
+                                <img src="images/product/10.png" alt="">
+                                <div class="row m0 hovArea">
+                                    <div class="row m0 icons">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row m0 proType"><a href="#">Baccarat</a></div>
+                                    <div class="row m0 proRating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="row m0 proPrice"><i class="fa fa-usd"></i>825.00</div>
+                                </div>
+                            </div>
+                            <div class="row m0 proName"><a href="single-product.html">bed collection</a></div>
+                            <div class="row m0 proBuyBtn">
+                                <button class="addToCart btn">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Feature Products 4 Collumn-->
+
+        <section id="testimonialTabs" class="row contentRowPad">
+            <div class="container">
+                <div class="row sectionTitle">
+                    <h3>Đánh giá từ khách hàng</h3>
+                    <h5>sức khỏe của khách hàng là mối quan tâm số 1 của chúng tôi!</h5>
+                </div>
+                <div class="row">
+                    <ul class="nav nav-tabs" role="tablist" id="testiTab">
+                        <li role="presentation" class="active">
+                            <a href="#testi1" aria-controls="testi1" role="tab" data-toggle="tab">
+                                <img src="images/testimonial/1.png" alt=""><i class="fa fa-plus-circle"></i>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#testi2" aria-controls="testi2" role="tab" data-toggle="tab">
+                                <img src="images/testimonial/2.png" alt=""><i class="fa fa-plus-circle"></i>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#testi3" aria-controls="testi3" role="tab" data-toggle="tab">
+                                <img src="images/testimonial/3.png" alt=""><i class="fa fa-plus-circle"></i>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#testi4" aria-controls="testi4" role="tab" data-toggle="tab">
+                                <img src="images/testimonial/4.png" alt=""><i class="fa fa-plus-circle"></i>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#testi5" aria-controls="testi5" role="tab" data-toggle="tab">
+                                <img src="images/testimonial/5.png" alt=""><i class="fa fa-plus-circle"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content testiTabContent">
+                        <div role="tabpanel" class="tab-pane active" id="testi1">
+                            <h5 class="customerName">Dwayne johnson</h5>
+                            <h5 class="customerType">happy customer</h5>
+                            <p>“ FurnitureHouse is really excellent site for furnitures. I am very happy with the FurnitureHouse products and dedicated services from them. FurnitureHouse is really excellent site for furnitures. ”</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="testi2">
+                            <h5 class="customerName">Dwayne johnson</h5>
+                            <h5 class="customerType">happy customer</h5>
+                            <p>“ FurnitureHouse is really excellent site for furnitures. I am very happy with the FurnitureHouse products and dedicated services from them. FurnitureHouse is really excellent site for furnitures. ”</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="testi3">
+                            <h5 class="customerName">Dwayne johnson</h5>
+                            <h5 class="customerType">happy customer</h5>
+                            <p>“ FurnitureHouse is really excellent site for furnitures. I am very happy with the FurnitureHouse products and dedicated services from them. FurnitureHouse is really excellent site for furnitures. ”</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="testi4">
+                            <h5 class="customerName">Dwayne johnson</h5>
+                            <h5 class="customerType">happy customer</h5>
+                            <p>“ FurnitureHouse is really excellent site for furnitures. I am very happy with the FurnitureHouse products and dedicated services from them. FurnitureHouse is really excellent site for furnitures. ”</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="testi5">
+                            <h5 class="customerName">Dwayne johnson</h5>
+                            <h5 class="customerType">happy customer</h5>
+                            <p>“ FurnitureHouse is really excellent site for furnitures. I am very happy with the FurnitureHouse products and dedicated services from them. FurnitureHouse is really excellent site for furnitures. ”</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Testimonial Tabs-->
+
+        <section id="brands" class="row contentRowPad">
+            <div class="container">
+                <div class="row sectionTitle">
+                    <h3>sản phẩm từ những thương hiệu uy tín hàng đầu</h3>
+                    <h5>chọn thương hiệu bạn muốn</h5>
+                </div>
+                <div class="row brands">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#"><img src="images/brands/1.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/brands/2.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/brands/3.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/brands/4.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/brands/5.png" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="row">
+            <div class="row m0 topFooter">
+
+                <div class="container line2">
+                    <div class="row">
+                        <div class="col-sm-3 widget">
+                            <div class="row m0">
+                                <h4>nhà thuốc thái lâm</h4>
+                                <p>Kết nối với chúng tôi</p>
+                                <hr style="width: 65%;" align="left">
+                                <ul class="list-inline">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                                <p>Hotline miễn phí: 1800 2001</p>
+                                <hr style="width: 65%;" align="left">
+                            </div>
+                        </div>
+                        <div class="col-sm-3 widget">
+                            <div class="row m0">
+                                <h4>thông tin</h4>
+                                <ul class="nav">
+                                    <li><a href="about.html">Hệ thống của hàng</a></li>
+                                    <li><a href="services.html">Dịch vụ tư vấn</a></li>
+                                    <li><a href="blog.html">Tin tức sức khỏe</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 widget">
+                            <div class="row m0">
+                                <h4>Chính sách hỗ trợ</h4>
+                                <ul class="nav">
+                                    <li><a href="#">Chính sách đổi trả</a></li>
+                                    <li><a href="#">Chính sách vận chuyển</a></li>
+                                    <li><a href="#">Chính sách bảo mật</a></li>
+                                    <li><a href="#">Kiểm tra hóa đơn điện tử</a></li>
+                                    <li><a href="#">Chính sách thanh toán</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 widget">
+                            <div class="row m0">
+                                <h4>đăng kí theo dõi</h4>
+                                <form action="subscriptionList.php" method="post" role="form">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                        <input type="email" class="form-control" id="subscribeEmail" name="subscribeEmail" placeholder="ĐỊA CHỈ EMAIL">
+                                    </div>
+                                    <input type="submit" class="form-control" value="theo dõi" id="submit" name="submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m0 copyRight">
+                <div class="container">
+                    <div class="row">
+                        <div class="fleft">&copy; 2015 <a href="index.html">FurnitureHouse</a> All Rights Reserved.</div>
+                        <ul class="nav nav-pills fright">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">about</a></li>
+                            <li><a href="blog.html">blog</a></li>
+                            <li><a href="contact.html">contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <!--jQuery-->
+        <script src="js/jquery-2.1.3.min.js"></script>
+
+        <!--Google Maps-->
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+        <!--Bootstrap JS-->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!--Strella JS-->
+        <script src="js/furniture.js"></script>
+
+    </body>
+
+</html>

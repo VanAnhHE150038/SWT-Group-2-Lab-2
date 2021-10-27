@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Cart.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;PROJECT_prj301&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Cart.java</span></div><h1>Cart.java</h1><pre class="source lang-java linenums">package model;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class Cart {
+
+    private List&lt;Item&gt; items;
+
+<span class="nc" id="L11">    public Cart() {</span>
+<span class="nc" id="L12">        items = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L13">    }</span>
+
+<span class="fc" id="L15">    public Cart(List&lt;Item&gt; items) {</span>
+<span class="fc" id="L16">        this.items = items;</span>
+<span class="fc" id="L17">    }</span>
+
+    public void setItems(List&lt;Item&gt; items) {
+<span class="nc" id="L20">        this.items = items;</span>
+<span class="nc" id="L21">    }</span>
+
+    public List&lt;Item&gt; getItems() {
+<span class="fc" id="L24">        return items;</span>
+    }
+
+    public double getTotalMoney() {
+<span class="fc" id="L28">        double t = 0;</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        for (Item i : items) {</span>
+<span class="fc" id="L30">            t += (i.getQuantity() * i.getPrice());</span>
+<span class="fc" id="L31">        }</span>
+<span class="fc" id="L32">        return t;</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L37">        int hash = 7;</span>
+<span class="nc" id="L38">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="nc" id="L43">        Cart c = (Cart) obj;</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        if (c.items.size() != this.items.size()) return false;</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        for (int i = 0; i &lt; items.size(); i++) {</span>
+<span class="nc bnc" id="L46" title="All 4 branches missed.">            if (this.getItems().get(i).getId() != c.getItems().get(i).getId() || this.getItems().get(i).getQuantity()!= c.getItems().get(i).getQuantity()) {</span>
+<span class="nc" id="L47">                return false;</span>
+            }
+        }
+<span class="nc" id="L50">        return true;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

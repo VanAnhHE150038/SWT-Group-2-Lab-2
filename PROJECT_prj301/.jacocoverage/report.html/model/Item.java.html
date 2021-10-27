@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Item.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;PROJECT_prj301&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Item.java</span></div><h1>Item.java</h1><pre class="source lang-java linenums">
+package model;
+
+
+public class Item {
+    private int id;
+    private int quantity;
+    private double price;
+    private Product product;
+<span class="fc" id="L10">    public Item() {</span>
+<span class="fc" id="L11">    }</span>
+
+    public Product getProduct() {
+<span class="fc" id="L14">        return product;</span>
+    }
+
+    public void setProduct(Product product) {
+<span class="fc" id="L18">        this.product = product;</span>
+<span class="fc" id="L19">    }</span>
+<span class="fc" id="L20">    public Item(int id, int quantity, double price) {</span>
+<span class="fc" id="L21">        this.id = id;</span>
+<span class="fc" id="L22">        this.quantity = quantity;</span>
+<span class="fc" id="L23">        this.price = price;</span>
+<span class="fc" id="L24">    }</span>
+
+<span class="nc" id="L26">        public Item(Product p, int quantity, double price) {</span>
+<span class="nc" id="L27">        this.product = p;</span>
+<span class="nc" id="L28">        this.quantity = quantity;</span>
+<span class="nc" id="L29">        this.price = price;</span>
+<span class="nc" id="L30">    }</span>
+    public int getId() {
+<span class="fc" id="L32">        return id;</span>
+    }
+
+    public void setId(int id) {
+<span class="fc" id="L36">        this.id = id;</span>
+<span class="fc" id="L37">    }</span>
+    
+<span class="fc" id="L39">    public Item(int id, int quantity) {</span>
+<span class="fc" id="L40">        this.id = id;</span>
+<span class="fc" id="L41">        this.quantity = quantity;</span>
+<span class="fc" id="L42">    }</span>
+    public double getPrice() {
+<span class="fc" id="L44">        return price;</span>
+    }
+    public void setPrice(double price) {
+<span class="fc" id="L47">        this.price = price;</span>
+<span class="fc" id="L48">    }</span>
+   
+    public int getQuantity() {
+<span class="fc" id="L51">        return quantity;</span>
+    }
+    public void setQuantity(int quantity) {
+<span class="fc" id="L54">        this.quantity = quantity;</span>
+<span class="fc" id="L55">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

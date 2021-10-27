@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>OrderDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;PROJECT_prj301&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dal</a> &gt; <span class="el_source">OrderDAO.java</span></div><h1>OrderDAO.java</h1><pre class="source lang-java linenums">package dal;
+
+import java.time.LocalDate;
+import model.Cart;
+import model.Customer;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import model.Item;
+import model.Order;
+
+<span class="fc" id="L14">public class OrderDAO extends DBContext {</span>
+
+    public int addOrder(Customer u, Cart cart) {
+<span class="fc" id="L17">        LocalDate curDate = java.time.LocalDate.now();</span>
+<span class="fc" id="L18">        String date = curDate.toString().substring(0, 10);</span>
+<span class="fc" id="L19">        int oid = 0;</span>
+        try {
+            //add vào bảng Order
+<span class="fc" id="L22">            String sql = &quot;insert into HoaDon values(?,?,'1',?)&quot;;</span>
+<span class="fc" id="L23">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="fc" id="L24">            st.setString(2, date);</span>
+<span class="fc" id="L25">            st.setString(1, u.getName());</span>
+<span class="fc" id="L26">            st.setDouble(3, cart.getTotalMoney());</span>
+<span class="fc" id="L27">            st.executeUpdate();</span>
+
+            //lấy ra id của Order vừa add
+<span class="fc" id="L30">            String sql1 = &quot;select top 1 MaHD from HoaDon order by MaHD desc&quot;;</span>
+<span class="fc" id="L31">            PreparedStatement st1 = connection.prepareStatement(sql1);</span>
+<span class="fc" id="L32">            ResultSet rs = st1.executeQuery();</span>
+
+            //add vào bảng Order Detail
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">            if (rs.next()) {</span>
+<span class="fc" id="L36">                oid = rs.getInt(&quot;MaHD&quot;);</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">                for (Item i : cart.getItems()) {</span>
+<span class="fc" id="L38">                    String sql2 = &quot;insert into ChiTietHoaDon values(?,?,?, ?)&quot;;</span>
+<span class="fc" id="L39">                    PreparedStatement st2 = connection.prepareStatement(sql2);</span>
+<span class="nc" id="L40">                    st2.setInt(1, i.getProduct().getID());</span>
+<span class="nc" id="L41">                    st2.setInt(2, i.getQuantity());</span>
+<span class="nc" id="L42">                    st2.setDouble(3, i.getPrice());</span>
+<span class="nc" id="L43">                    st2.setDouble(4, oid);</span>
+<span class="nc" id="L44">                    st2.executeUpdate();</span>
+<span class="nc" id="L45">                }</span>
+            }
+            //update so luong trong bang Product sau khi ban
+<span class="nc" id="L48">            String sql3 = &quot;update SanPham set SoLuong = SoLuong - ? &quot;</span>
+                    + &quot;where MaSP = ?&quot;;
+<span class="nc" id="L50">            PreparedStatement st3 = connection.prepareStatement(sql3);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">            for (Item i : cart.getItems()) {</span>
+<span class="nc" id="L52">                st3.setInt(1, i.getQuantity());</span>
+<span class="nc" id="L53">                st3.setInt(2, i.getProduct().getID());</span>
+<span class="nc" id="L54">                st3.executeUpdate();</span>
+<span class="nc" id="L55">            }</span>
+            //xoa sp trong MyCart
+<span class="nc" id="L57">            String sql4 = &quot;delete from Cart &quot;</span>
+                    + &quot;where Username  = ?&quot;;
+<span class="nc" id="L59">            PreparedStatement st4 = connection.prepareStatement(sql4);</span>
+<span class="nc" id="L60">            st4.setString(1, u.getName());</span>
+<span class="nc" id="L61">            st4.executeUpdate();</span>
+<span class="nc" id="L62">        } catch (SQLException e) {</span>
+<span class="nc" id="L63">            System.out.println(e);</span>
+<span class="nc" id="L64">        }</span>
+<span class="nc" id="L65">        return oid;</span>
+    }
+
+    public List&lt;Order&gt; getOrdering(String username) throws SQLException {
+<span class="fc" id="L69">        String sql = &quot;select MaHD, NgayDatHang,KhachHang, TongTien , TinhTrang from HoaDon join TinhTrangDonHang on  HoaDon.StatusID = TinhTrangDonHang.ID\n&quot;</span>
+                + &quot; where KhachHang= ? order by MaHD desc&quot;;
+<span class="fc" id="L71">        PreparedStatement st1 = connection.prepareStatement(sql);</span>
+<span class="fc" id="L72">        st1.setString(1, username);</span>
+<span class="fc" id="L73">        ResultSet rs = st1.executeQuery();</span>
+<span class="fc" id="L74">        List&lt;Order&gt; l = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        while (rs.next()) {</span>
+<span class="fc" id="L76">            l.add(new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getString(5)));</span>
+        }
+<span class="fc" id="L78">        return l;</span>
+    }
+
+    public List&lt;Order&gt; getAll() throws SQLException {
+<span class="fc" id="L82">        String sql = &quot;select MaHD, NgayDatHang,KhachHang, TongTien , TinhTrang from HoaDon join TinhTrangDonHang on  HoaDon.StatusID = TinhTrangDonHang.ID\n&quot;</span>
+                + &quot; order by MaHD desc&quot;;
+<span class="fc" id="L84">        PreparedStatement st1 = connection.prepareStatement(sql);</span>
+<span class="fc" id="L85">        ResultSet rs = st1.executeQuery();</span>
+<span class="fc" id="L86">        List&lt;Order&gt; l = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        while (rs.next()) {</span>
+<span class="fc" id="L88">            l.add(new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getString(5)));</span>
+        }
+<span class="fc" id="L90">        return l;</span>
+
+    }
+
+    public int Update(int id, int statusID) throws SQLException {
+<span class="fc" id="L95">        String sql3 = &quot;update HoaDon set StatusID = ? &quot;</span>
+                + &quot; where MaHD = ?&quot;;
+<span class="fc" id="L97">        PreparedStatement st3 = connection.prepareStatement(sql3);</span>
+<span class="fc" id="L98">        st3.setInt(1, statusID);</span>
+<span class="fc" id="L99">        st3.setInt(2, id);</span>
+<span class="fc" id="L100">        return st3.executeUpdate();</span>
+    }
+
+    public static void main(String[] args) throws SQLException {
+<span class="nc" id="L104">        OrderDAO a = new OrderDAO();</span>
+<span class="nc" id="L105">        CustomerDAO b = new CustomerDAO();</span>
+
+<span class="nc" id="L107">        a.Update(23, 2);</span>
+<span class="nc" id="L108">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

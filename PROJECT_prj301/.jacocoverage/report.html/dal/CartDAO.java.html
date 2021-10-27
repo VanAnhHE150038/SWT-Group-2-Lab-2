@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CartDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;PROJECT_prj301&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dal</a> &gt; <span class="el_source">CartDAO.java</span></div><h1>CartDAO.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dal;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import model.Cart;
+import model.Item;
+import model.Product;
+
+/**
+ *
+ * @author Admin
+ */
+<span class="fc" id="L21">public class CartDAO extends DBContext {</span>
+
+    public Cart getCart(String username){
+<span class="fc" id="L24">        List&lt;Item&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L25">        String sql=&quot;select * from Cart inner join SanPham on Cart.MaSP = SanPham.MaSP where Username = ?&quot;;</span>
+        try{
+<span class="fc" id="L27">            PreparedStatement st=connection.prepareStatement(sql);</span>
+<span class="fc" id="L28">            connection.setAutoCommit(false);</span>
+<span class="fc" id="L29">            st.setString(1, username);</span>
+<span class="fc" id="L30">            ResultSet rs=st.executeQuery();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            while(rs.next()){</span>
+<span class="fc" id="L32">                Item a=new Item();</span>
+<span class="fc" id="L33">                a.setId(rs.getInt(&quot;MaSP&quot;));</span>
+<span class="fc" id="L34">                a.setQuantity(rs.getInt(&quot;quantity&quot;));</span>
+<span class="fc" id="L35">                a.setPrice(rs.getInt(&quot;Gia&quot;)*1.2);</span>
+<span class="fc" id="L36">                Product s = new Product();</span>
+<span class="fc" id="L37">                s.setID(rs.getInt(&quot;MaSP&quot;));</span>
+<span class="fc" id="L38">                s.setCateID(rs.getString(&quot;CategoryID&quot;));</span>
+<span class="fc" id="L39">                s.setQuantity(rs.getInt(&quot;SoLuong&quot;));</span>
+<span class="fc" id="L40">                s.setPrice(rs.getString(&quot;Gia&quot;));</span>
+<span class="fc" id="L41">                s.setScript(rs.getString(&quot;Script&quot;));</span>
+<span class="fc" id="L42">                s.setSubcate(rs.getString(&quot;Subcate&quot;));</span>
+<span class="fc" id="L43">                s.setName(rs.getString(&quot;TenSP&quot;));</span>
+<span class="fc" id="L44">                s.setBrandID(rs.getString(&quot;MaThuongHieu&quot;));</span>
+<span class="fc" id="L45">                s.setImg(rs.getString(&quot;linkAnh&quot;));</span>
+<span class="fc" id="L46">                s.setSold(rs.getInt(&quot;DaBan&quot;));</span>
+<span class="fc" id="L47">                a.setProduct(s);</span>
+<span class="fc" id="L48">                list.add(a);</span>
+<span class="fc" id="L49">                connection.rollback();</span>
+<span class="fc" id="L50">            }</span>
+<span class="fc" id="L51">            return new Cart(list);</span>
+<span class="nc" id="L52">        }catch(SQLException e){</span>
+<span class="nc" id="L53">            System.out.println(e);</span>
+        }
+<span class="nc" id="L55">        return null;</span>
+    }
+
+    public int addItem(String username, Item t){
+<span class="fc" id="L59">        int id = t.getId();</span>
+<span class="fc" id="L60">        int i = getQuantityById(id, username);</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if (i != 0) {</span>
+<span class="fc" id="L62">            return update(id, username, i + t.getQuantity());</span>
+        } else {
+<span class="fc" id="L64">            return add(id, username, t.getQuantity());</span>
+        }
+    }
+
+    public int update(int id, String username, int quantity) {
+<span class="fc" id="L69">        String sql = &quot;update Cart set quantity = ?&quot;</span>
+                + &quot; where Username =? and MaSP = ?&quot;;
+        try {
+<span class="fc" id="L72">            PreparedStatement st = connection.prepareStatement(sql);</span>
+
+<span class="fc" id="L74">            st.setInt(1, quantity);</span>
+<span class="fc" id="L75">            st.setString(2, username);</span>
+<span class="fc" id="L76">            st.setInt(3, id);</span>
+<span class="fc" id="L77">            return st.executeUpdate();</span>
+<span class="fc" id="L78">        } catch (SQLException e) {</span>
+<span class="fc" id="L79">            System.out.println(e);</span>
+            
+        }
+<span class="fc" id="L82">        return -1;</span>
+    }
+
+    public int add(int id, String username, int quantity) {
+<span class="fc" id="L86">        String sql = &quot;insert into Cart values(?,?,?)&quot;;</span>
+        try {
+<span class="fc" id="L88">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="fc" id="L89">            st.setInt(3, quantity);</span>
+<span class="fc" id="L90">            st.setString(1, username);</span>
+<span class="fc" id="L91">            st.setInt(2, id);</span>
+<span class="fc" id="L92">            return st.executeUpdate();</span>
+
+<span class="fc" id="L94">        } catch (SQLException e) {</span>
+<span class="fc" id="L95">            System.out.println(e);</span>
+        }
+<span class="fc" id="L97">        return -1;</span>
+    }
+
+    public int delete(int id, String username) {
+<span class="fc" id="L101">        String sql = &quot;delete from Cart where Username =? and MaSP =?&quot;;</span>
+        try {
+<span class="fc" id="L103">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="fc" id="L104">            st.setInt(2, id);</span>
+<span class="fc" id="L105">            st.setString(1, username);</span>
+<span class="nc" id="L106">            ResultSet rs = st.executeQuery();</span>
+<span class="nc" id="L107">            return st.executeUpdate();</span>
+<span class="fc" id="L108">        } catch (SQLException e) {</span>
+<span class="fc" id="L109">            System.out.println(e);</span>
+        }
+<span class="fc" id="L111">        return -1;</span>
+    }
+
+    public int getQuantityById(int id, String username) {
+<span class="fc" id="L115">        String sql = &quot;select *from Cart where Username =? and MaSP = ?&quot;;</span>
+        try {
+<span class="fc" id="L117">            PreparedStatement st = connection.prepareStatement(sql);</span>
+<span class="fc" id="L118">            st.setInt(2, id);</span>
+<span class="fc" id="L119">            st.setString(1, username);</span>
+<span class="fc" id="L120">            ResultSet rs = st.executeQuery();</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">            if (rs.next()) {</span>
+<span class="fc" id="L122">                return rs.getInt(&quot;quantity&quot;);</span>
+            }
+<span class="nc" id="L124">        } catch (SQLException e) {</span>
+<span class="nc" id="L125">            System.out.println(e);</span>
+<span class="fc" id="L126">        }</span>
+<span class="fc" id="L127">        return 0;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
